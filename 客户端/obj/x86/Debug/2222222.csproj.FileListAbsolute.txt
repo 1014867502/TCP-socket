@@ -1,0 +1,26 @@
+c:\users\administrator\documents\visual studio 2010\Projects\11111\2222222\bin\Debug\2222222.exe
+c:\users\administrator\documents\visual studio 2010\Projects\11111\2222222\bin\Debug\2222222.pdb
+c:\users\administrator\documents\visual studio 2010\Projects\11111\2222222\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\administrator\documents\visual studio 2010\Projects\11111\2222222\obj\x86\Debug\_2222222.Properties.Resources.resources
+c:\users\administrator\documents\visual studio 2010\Projects\11111\2222222\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\administrator\documents\visual studio 2010\Projects\11111\2222222\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\administrator\documents\visual studio 2010\Projects\11111\2222222\obj\x86\Debug\2222222.exe
+c:\users\administrator\documents\visual studio 2010\Projects\11111\2222222\obj\x86\Debug\2222222.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\11111\2222222\obj\x86\Debug\_2222222.frmClient.resources
+G:\百度网盘\TCP 通信（数据、文件的传输）\TCP 通信（数据、文件的传输）\客户端\obj\x86\Debug\2222222.exe
+G:\百度网盘\TCP 通信（数据、文件的传输）\TCP 通信（数据、文件的传输）\客户端\obj\x86\Debug\2222222.pdb
+G:\百度网盘\TCP 通信（数据、文件的传输）\TCP 通信（数据、文件的传输）\客户端\bin\Debug\2222222.exe
+G:\百度网盘\TCP 通信（数据、文件的传输）\TCP 通信（数据、文件的传输）\客户端\bin\Debug\2222222.pdb
+G:\百度网盘\TCP 通信（数据、文件的传输）\TCP 通信（数据、文件的传输）\客户端\obj\x86\Debug\2222222.csprojResolveAssemblyReference.cache
+G:\百度网盘\TCP 通信（数据、文件的传输）\TCP 通信（数据、文件的传输）\客户端\obj\x86\Debug\_2222222.frmClient.resources
+G:\百度网盘\TCP 通信（数据、文件的传输）\TCP 通信（数据、文件的传输）\客户端\obj\x86\Debug\_2222222.Properties.Resources.resources
+G:\百度网盘\TCP 通信（数据、文件的传输）\TCP 通信（数据、文件的传输）\客户端\obj\x86\Debug\2222222.csproj.GenerateResource.Cache
+C:\Users\GEO-RJB\Desktop\TCP 通信（数据、文件的传输）\客户端\bin\Debug\2222222.exe
+C:\Users\GEO-RJB\Desktop\TCP 通信（数据、文件的传输）\客户端\bin\Debug\2222222.pdb
+C:\Users\GEO-RJB\Desktop\TCP 通信（数据、文件的传输）\客户端\obj\x86\Debug\2222222.csprojAssemblyReference.cache
+C:\Users\GEO-RJB\Desktop\TCP 通信（数据、文件的传输）\客户端\obj\x86\Debug\_2222222.frmClient.resources
+C:\Users\GEO-RJB\Desktop\TCP 通信（数据、文件的传输）\客户端\obj\x86\Debug\_2222222.Properties.Resources.resources
+C:\Users\GEO-RJB\Desktop\TCP 通信（数据、文件的传输）\客户端\obj\x86\Debug\2222222.csproj.GenerateResource.cache
+C:\Users\GEO-RJB\Desktop\TCP 通信（数据、文件的传输）\客户端\obj\x86\Debug\2222222.csproj.CoreCompileInputs.cache
+C:\Users\GEO-RJB\Desktop\TCP 通信（数据、文件的传输）\客户端\obj\x86\Debug\2222222.exe
+C:\Users\GEO-RJB\Desktop\TCP 通信（数据、文件的传输）\客户端\obj\x86\Debug\2222222.pdb
