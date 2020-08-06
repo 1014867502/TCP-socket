@@ -77,8 +77,8 @@ namespace _11111
             // 设置监听队列的长度；
             serviceSocket.Listen(1000);
             // 创建负责监听的线程；
-            threadWatch = new Thread(WatchConnecting);         
-            threadWatch.Start();
+            threadWatch = new Thread(new ParameterizedThreadStart(WatchConnecting));         
+            threadWatch.Start(serviceSocket);
             ShowMsg("服务器启动监听成功！");
             //}
         }
@@ -86,14 +86,20 @@ namespace _11111
         /// <summary>
         /// 监听客户端请求的方法；
         /// </summary>
-        void WatchConnecting()
+        void WatchConnecting(object obj)
         {
+            Socket socketWatch = obj as Socket;
             this.Invoke(new append(ShowMsg), "等待连接...");
             try
             {
+                while (true)
+                {
+                    socketSend = socketWatch.Accept();
+                    Thread threadReceive = new Thread(new ParameterizedThreadStart(Rsg));
+                    threadReceive.IsBackground = true;
+                    threadReceive.Start(socketSend);
+                }
                 
-                serviceSocket.BeginAccept(new AsyncCallback(acceptCallback), serviceSocket); //异步操作接入的连接请求
-                acceptDone.WaitOne(); //阻止当前线程，等待连接回调函数的执行
             }
             catch (Exception ex)
             {
@@ -102,6 +108,16 @@ namespace _11111
 
         }
       
+        void Rsg(object obj)
+        {
+            Socket socket = obj as Socket;
+            StateObject state = new StateObject();
+            state.socket = socket;
+            socket.BeginReceive(state.buffer, 0, state.buffer.Length, SocketFlags.None, new AsyncCallback(receiveCallback), state);
+            ShowMsg("连接成功");
+            lbOnline.Items.Add(socket.RemoteEndPoint.ToString());
+        }
+
         void ShowMsg(string str)
         {
             txtMsg.AppendText(str + "\r\n");
@@ -308,15 +324,17 @@ namespace _11111
                 Socket serviceSocket = (Socket)ar.AsyncState;
                 acceptDone.Set();//结束当前进程的停止状态，继续接收下一链接请求
                 Socket socket = serviceSocket.EndAccept(ar);//异步接受传入的连接请求
-                ShowMsg("连接成功");
                 StateObject state = new StateObject();
                 state.socket = socket;
                 socket.BeginReceive(state.buffer, 0, state.buffer.Length, SocketFlags.None, new AsyncCallback(receiveCallback), state);
+                ShowMsg("连接成功");
+                lbOnline.Items.Add(socket.RemoteEndPoint.ToString());
                 //阻止当前异步接收线程，等待接收回调函数返回
                 recevieDone.WaitOne();
                 if ((maxScoket--) > 0)
                 {
                     serviceSocket.BeginAccept(new AsyncCallback(acceptCallback), serviceSocket); //等待接收下一个连接请求
+                    
                 }
             }
             catch (Exception ex)
@@ -328,11 +346,16 @@ namespace _11111
 
         //接收数据后的回调
         private void receiveCallback(IAsyncResult ar)
-        {
+        {            
             try
             {
+                
                 StateObject state = (StateObject)ar.AsyncState;
-                int receiveBytes = state.socket.EndReceive(ar); //结束当前的接收数据请求
+                if (!isClientConnect(state.socket))
+                {
+                    ShowMsg(state.socket.RemoteEndPoint.ToString()+"已断开");
+                }
+                    int receiveBytes = state.socket.EndReceive(ar); //结束当前的接收数据请求
                 if (receiveBytes > 0)
                 {
                     state.sb.Append(System.Text.UnicodeEncoding.UTF8.GetString(state.buffer));
@@ -359,8 +382,9 @@ namespace _11111
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                
+                txtMsg.AppendText(ex.Message);
+
+
             }
         }
 
